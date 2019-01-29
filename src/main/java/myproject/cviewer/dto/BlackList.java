@@ -1,22 +1,48 @@
 package myproject.cviewer.dto;
 
-public class ClientBlackList {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Proxy;
+
+@Entity
+@Table(name = "clientBlackList")
+@Proxy(lazy =false) //так делать нельзя, но я не нашел как надо, т.к. на уровне контролерра Exeption 
+//org.hibernate.LazyInitializationException: could not initialize proxy - no Session 
+public class BlackList {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
 	private int id;
+	
+	@OneToOne
+    @JoinColumn(name = "client_id")
 	private Client client;
 	/* Description of the reason for adding to the blacklist */
+	@Column(name = "description")
 	private String description;
+	
+	@ManyToOne(targetEntity=Admin.class)
+	@JoinColumn(name = "admin_id")
 	private Admin admin;
 	
-	public ClientBlackList() {}
+	public BlackList() {}
 
-	public ClientBlackList(Client client, String description, Admin admin) {
+	public BlackList(Client client, String description, Admin admin) {
 		super();
 		this.client = client;
 		this.description = description;
 		this.admin = admin;
 	}
 
-	public ClientBlackList(int id, Client client, String description, Admin admin) {
+	public BlackList(int id, Client client, String description, Admin admin) {
 		super();
 		this.id = id;
 		this.client = client;
@@ -74,7 +100,7 @@ public class ClientBlackList {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ClientBlackList other = (ClientBlackList) obj;
+		BlackList other = (BlackList) obj;
 		if (admin == null) {
 			if (other.admin != null)
 				return false;

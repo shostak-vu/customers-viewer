@@ -1,11 +1,32 @@
 package myproject.cviewer.dto;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Proxy;
+
+@Entity
+@Table(name = "admin")
+@Proxy(lazy =false) //так делать нельзя, но я не нашел как надо, т.к. на уровне контролерра Exeption 
+//org.hibernate.LazyInitializationException: could not initialize proxy - no Session 
 public class Admin {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
 	private int id;
+	@Column(name = "firstName")
 	private String firstName;
+	@Column(name = "lastName")
 	private String lastName;
+	@Column(name = "phoneNumber")
 	private String phoneNumber;
+	@Column(name = "email")
 	private String email;
+	@Column(name = "password")
 	private String password;
 	
 	public Admin() {}
