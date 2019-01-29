@@ -12,3 +12,15 @@ INSERT INTO client (id,firstName,lastName,phoneNumber,email,password) VALUES (91
 
 INSERT INTO admin (id,firstName,lastName,phoneNumber,email,password) VALUES 
 (1,'Victor','Petrov','063-066-0252','v.petrov@gmail.com','admin');
+
+INSERT INTO clientBlackList(id, client_id, description, admin_id) VALUES
+(1, 10, 'Описание причины 1',	1),
+(2, 20, 'Описание причины 2',	1),
+(3, 34, 'Описание причины 3',	1),
+(4, 5, 	'Описание причины 4',	1),
+(5, 9,	'Описание причины 5',	1),
+(6, 50,	'Описание причины 6',	1),
+(7, 45,	'Описание причины 7',	1),
+(8, 67,	'Описание причины 8',	1),
+(9, 70,	'Описание причины 9',	1),
+(10,94,	'Описание причины 10',	1);
