@@ -5,8 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -17,20 +16,27 @@
 
     <!-- Custom styles for this template -->
     <link href="<c:url value="/resources/css/signin.css" />" rel="stylesheet">
-
+    
 </head>
-
-<body>
-
-<div class="container" style="width: 300px;">
+  <body class="text-center">
     <c:url value="/j_spring_security_check" var="loginUrl" />
-    <form action="${loginUrl}" method="post">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <input type="text" class="form-control" name="j_username" placeholder="Login" required autofocus value="v.petrov@gmail.com">
-        <input type="password" class="form-control" name="j_password" placeholder="Password" required value="admin">
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-    </form>
-</div>
+    <form class="form-signin" action="${loginUrl}" method="post">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <label for="inputEmail" class="sr-only">Email address</label>
+        
+      <input type="email" id="inputEmail" class="form-control" name="j_username" placeholder="Email address" required autofocus value="v.petrov@gmail.com">
+        
+      <input type="password" class="form-control" name="j_password" placeholder="Password" required value="admin">
+        
+      <div class="checkbox mb-3">      
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      
+    </form>  
+  </body>
 
-</body>
 </html>

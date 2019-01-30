@@ -43,12 +43,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .failureUrl("/login?error")
             .usernameParameter("j_username")
             .passwordParameter("j_password")
-            .permitAll();
+            .permitAll()
+            .defaultSuccessUrl("/clients");
 
         http.logout()
             .permitAll()
             .logoutUrl("/logout")
-            .logoutSuccessUrl("/login?logout")
+            .logoutSuccessUrl("/index") //login?logout
             .invalidateHttpSession(true);
     }
 }

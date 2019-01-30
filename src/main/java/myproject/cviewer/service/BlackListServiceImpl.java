@@ -32,8 +32,7 @@ public class BlackListServiceImpl implements BlackListService {
 
 	@Override
     @Transactional
-	public void update(Client blockedClient, Admin admin, String description) {
-		BlackList blackListItem = new BlackList(blockedClient, description, admin);
+	public void update(BlackList blackListItem) {
 		blackListDao.update(blackListItem);
 	}
 

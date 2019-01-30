@@ -22,7 +22,7 @@ public class BlackListDaoImpl implements BlackListDao {
 
 	@Override
 	public void create(BlackList blockedClient) {
-		sf.getCurrentSession().saveOrUpdate(blockedClient);
+		sf.getCurrentSession().save(blockedClient);
 	}
 
 	@Override
