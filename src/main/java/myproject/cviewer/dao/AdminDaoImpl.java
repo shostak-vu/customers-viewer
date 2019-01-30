@@ -43,4 +43,13 @@ public class AdminDaoImpl implements AdminDao {
 		return querys.getResultList();
 	}
 
+	@Override
+	public Admin getByEmail(String email) {
+		@SuppressWarnings("unchecked")
+		TypedQuery<Admin> querys = sf.getCurrentSession().createQuery("SELECT a "
+				+ "FROM Admin a WHERE a.email =:email");
+		Admin admin = querys.setParameter("email", email).getSingleResult();
+		return admin;
+	}
+
 }

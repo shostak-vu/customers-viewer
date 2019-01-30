@@ -45,4 +45,10 @@ public class AdminServiceImpl implements AdminService {
 		return admins;
 	}
 
+	@Override
+    @Transactional(readOnly = true)
+	public Admin getByEmail(String email) {
+		return adminDao.getByEmail(email);
+	}
+
 }

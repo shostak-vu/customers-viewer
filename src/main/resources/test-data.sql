@@ -11,7 +11,7 @@ INSERT INTO client (id,firstName,lastName,phoneNumber,email,password) VALUES (91
 
 
 INSERT INTO admin (id,firstName,lastName,phoneNumber,email,password) VALUES 
-(1,'Victor','Petrov','063-066-0252','v.petrov@gmail.com','admin');
+(1,'Victor','Petrov','063-066-0252','v.petrov@gmail.com','$2a$10$X.1kFifTFjQMgfhS9Kg5POA0nqZPxdhNpc0JTtPaY8rcFKrYo4/1G');
 
 INSERT INTO clientBlackList(id, client_id, description, admin_id) VALUES
 (1, 10, 'Описание причины 1',	1),

@@ -16,7 +16,7 @@ CREATE TABLE admin (
   lastName varchar(50) NOT NULL,
   phoneNumber varchar(12) NOT NULL,
   email varchar(100) NOT NULL,
-  password varchar(50),
+  password varchar(60),
   PRIMARY KEY (id)
 );
 
